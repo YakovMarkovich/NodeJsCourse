@@ -1,13 +1,24 @@
 const express = require('express');
+const port = '3000';
 
-const app = express()
-const port = 3000
-const host = '127.0.0.1';
+// middlewares
+const notFound = require('./middlewares/404')
+const errorHandler = require('./middlewares/error')
 
-const basicRoute = require('./routes/basic-route');
+// 
+const guestsRoute = require('./routes/guests');
+const usersRoute = require('./routes/users');
+const githubRoute = require('./routes/github');
 
-app.use('/admin', basicRoute);
+const app = express();
 
-app.listen(port, host, () => {
-  console.log(`Example app listening on port ${port}`)
+app.use('/', guestsRoute);
+app.use('/', usersRoute);
+app.use('/github', githubRoute);
+
+app.use(errorHandler);
+app.use(notFound);
+
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
 })
