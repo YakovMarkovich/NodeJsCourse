@@ -1,0 +1,29 @@
+{
+    "app": {
+        "port": "3001"
+    },
+    "mysql": {
+        "host": "localhost",
+        "port": "3306",
+        "user": "username",
+        "password": "password",
+        "database": "mydb"
+    },
+    "worker": {
+        "interval": 5000,
+        "io": {
+            "host": "localhost",
+            "port": "3000"
+        }
+    },
+    "mongo": {
+        "host": "127.0.0.1",
+        "port": "27017",
+        "database": "mymongo"
+    },
+    "github": {
+        "clientID": "5e005bf8a090bd32b82a",
+        "clientSecret": "22c10a690a4b686f74008d33e7fc27863fd50014",
+        "callback": "http://localhost:3000/github/callback"
+    } 
+}
